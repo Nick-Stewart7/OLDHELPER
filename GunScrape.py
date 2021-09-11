@@ -2,9 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 from dataclasses import dataclass
 
-@dataclass
-class Gun(repr=True):
-    """Class for Gun BANGBANG"""
+"""@dataclass
+    class Gun(repr=True):
     Icon: str
     Name: str
     Quote: str
@@ -20,7 +19,7 @@ class Gun(repr=True):
     Range: int
     Force: int
     Spread: int
-    Notes: str
+    Notes: str"""
 
 def scrapeWiki():
     url = "https://enterthegungeon.fandom.com/wiki/Guns"
@@ -31,8 +30,7 @@ def scrapeWiki():
     for i in range(len(gunList)):
         gunData = []
         for node in gunList[i].find_all('td'):
-            print(node)
-            gunData.append(node)
+            gunData.append(node.text)
             #make everything a gun class
             #how to store gun class for later access
             #does it have to be a class? just throw this in a database
@@ -40,6 +38,7 @@ def scrapeWiki():
             #does not have to do this init?
             #this scrape is an init
             #program will need to parse this data
+        print(gunData)
         
 def main():
     scrapeWiki()
