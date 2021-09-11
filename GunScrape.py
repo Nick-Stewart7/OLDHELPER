@@ -39,8 +39,10 @@ def scrapeWiki():
             #this scrape is an init
             #program will need to parse this data
         print(gunData)
+        print("maybethis")
         
 def main():
     scrapeWiki()
+    #testtttergit
 if __name__ == '__main__':
     main()
