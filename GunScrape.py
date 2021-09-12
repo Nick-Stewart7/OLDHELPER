@@ -24,13 +24,15 @@ from dataclasses import dataclass
 def scrapeWiki():
     url = "https://enterthegungeon.fandom.com/wiki/Guns"
     response = requests.get(url)
-    soup = BeautifulSoup(response.content)
+    soup = BeautifulSoup(response.content, features="html.parser")
     gunTable = soup.find('table')
     gunList = gunTable.find_all('tr')
     for i in range(len(gunList)):
         gunData = []
         for node in gunList[i].find_all('td'):
-            gunData.append(node.text)
+            if node.text != '':
+                finalEntry = node.text.strip('\n')
+                gunData.append(finalEntry)
             #make everything a gun class
             #how to store gun class for later access
             #does it have to be a class? just throw this in a database
