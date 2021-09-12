@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from dataclasses import dataclass
 
 """@dataclass
-    class Gun(repr=True):
+    class Gun(repr=True)
     Icon: str
     Name: str
     Quote: str
@@ -39,10 +39,8 @@ def scrapeWiki():
             #this scrape is an init
             #program will need to parse this data
         print(gunData)
-        print("maybethis")
         
 def main():
     scrapeWiki()
-    #testtttergit
 if __name__ == '__main__':
     main()
