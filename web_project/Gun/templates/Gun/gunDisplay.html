@@ -1,12 +1,48 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="uts-8"/>
-        <title> Hello, Gungeoneer</title>
-    </head>
-    <body>
-        <table>
-            
+{% extends "Gun/layout.html" %}
+{% block title %}
+    Gun Display
+{% endblock %}
+{% block content %}
+    <h2>GUNS</h2>
+
+    {% if gun_list %}
+        <table class="gun_list">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quote</th>
+                <th>Firing Mode</th>
+                <th>DPS</th>
+                <th>Mag Size</th>
+                <th>Ammo Cap</th>
+                <th>Fire Rate</th>
+                <th>Reload Speed</th>
+                <th>Shot Speed</th>
+                <th>Range</th>
+                <th>Force</th>
+                <th>Spread</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for gun in gun_list %}
+                <tr>
+                    <td>{{ gun.gunName }}</td>
+                    <td>{{ gun.quote }}</td>
+                    <td>{{ gun.type }}</td>
+                    <td>{{ gun.DPS }}</td>
+                    <td>{{ gun.map }}</td>
+                    <td>{{ gun.ammo }}</td>
+                    <td>{{ gun.rate }}</td>
+                    <td>{{ gun.reload }}</td>
+                    <td>{{ gun.shotspd }}</td>
+                    <td>{{ gun.range }}</td>
+                    <td>{{ gun.force }}</td>
+                    <td>{{ gun.spread }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>
-    </body>
-</html>
+    {% else %}
+        <p>No guns have been logged</p>
+    {% endif %}
+{% endblock %}
